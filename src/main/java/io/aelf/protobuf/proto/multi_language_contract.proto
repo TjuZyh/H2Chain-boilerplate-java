@@ -8,7 +8,6 @@ import "google/protobuf/empty.proto";
 
 service MultiLanguageContract {
 
-
     //rpc Initialize (google.protobuf.Empty) returns (google.protobuf.Empty) { }
     rpc Get (GetInput) returns (GetReturn) { }
     rpc Set (SetInput) returns (google.protobuf.Empty) { }
