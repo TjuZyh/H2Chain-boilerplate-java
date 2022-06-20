@@ -1,6 +1,5 @@
 package contarctImpl.Implement;
 
-
 import H2ChainUtil.HexUtil.HexUtil;
 import com.alibaba.fastjson.JSONObject;
 import contarctImpl.State.StateDemo;
@@ -12,6 +11,7 @@ import contractAPI.H2ChainAPI;
  * @Version 1.0
  */
 public class ContractDemo {
+
     public static Boolean updateState(String info) throws Exception {
         //向链上发起请求，获取链上当前状态
         String curState = H2ChainAPI.getInfo(StateDemo.class.getName());
