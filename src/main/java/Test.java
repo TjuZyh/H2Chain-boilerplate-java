@@ -1,3 +1,4 @@
+import H2ChainUtil.OSS.UploadOSS;
 import H2ChainUtil.SHA.HashJAR;
 
 import java.io.File;
@@ -13,8 +14,13 @@ public class Test {
         try {
             /*String hashJAR = HashJAR.hashJAR(new File("/Users/zyh/Desktop/JAR_demo.jar"));
             System.out.println(hashJAR);*/
-            File JARFile = new File("/Users/zyh/Desktop/JAR_demo.jar");
-            System.out.println(JARFile.getName().substring(0 , JARFile.getName().length()-4));
+
+            //File JARFile = new File("/Users/zyh/Desktop/JAR_demo.jar");
+            //System.out.println(JARFile.getName().substring(0 , JARFile.getName().length()-4));
+
+            String url = UploadOSS.uploadOSS(new File("/Users/zyh/Desktop/JAR_demo.jar"));
+            System.out.println(url);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,5 +1,7 @@
 package contractAPI;
 
+import H2ChainUtil.FileBO.ConvertFileToInfo;
+import H2ChainUtil.OSS.UploadOSS;
 import H2ChainUtil.SHA.SHA;
 import com.alibaba.fastjson.JSONObject;
 import com.google.protobuf.ByteString;
@@ -14,6 +16,8 @@ import io.aelf.sdk.AElfClient;
 import io.aelf.utils.ByteArrayHelper;
 import org.bitcoinj.core.Base58;
 import org.bouncycastle.util.encoders.Hex;
+
+import java.io.File;
 
 /**
  * @Author zyh
@@ -69,5 +73,22 @@ public class H2ChainDevAPI {
                 throw new Exception();
             }
         }
+    }
+
+    /**
+     * 合约部署：JAR文件OSS存储 以及 匹配对应proto字段上链
+     * @param file
+     * @return
+     */
+    public static String deployContract(File file){
+        String addressHash = "";
+        try {
+            String ossUrl = UploadOSS.uploadOSS(file);
+            ContractInfo contractInfo = ConvertFileToInfo.convertFileToInfo(file, ossUrl);
+            addressHash = setContract(contractInfo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return addressHash;
     }
 }

@@ -1,4 +1,5 @@
 import H2ChainUtil.HexUtil.HexUtil;
+import H2ChainUtil.OSS.UploadOSS;
 import H2ChainUtil.SHA.HashJAR;
 import contractAPI.Entity.ContractInfo;
 import contractAPI.H2ChainAPI;
@@ -25,25 +26,19 @@ public class Main {
     public static void main(String[] args) {
         try {
 
-            System.out.println(HexUtil.HexStringToString(H2ChainAPI.getInfo("person")));
+            //get
+            //System.out.println(HexUtil.HexStringToString(H2ChainAPI.getInfo("person")));
 
-            H2ChainAPI.setInfo("person" , "aaa");
+            //set
+            //H2ChainAPI.setInfo("person" , "zyh");
 
-            System.out.println(HexUtil.HexStringToString(H2ChainAPI.getInfo("person")));
+            //get
+            //System.out.println(HexUtil.HexStringToString(H2ChainAPI.getInfo("person")));
 
-           /* ContractInfo contractInfo = new ContractInfo();
+            //合约部署
             File JARFile = new File("/Users/zyh/Desktop/JAR_demo.jar");
-
-            //codeAddress，即OSS返回的URL，需要通过调用OSS API实现
-            contractInfo.setCodeAddress("https://helloContract.jar.com");
-            //通过字节读入jar包，对字节流进行Hash
-            String hashJAR = HashJAR.hashJAR(JARFile);
-            contractInfo.setCodeHash(hashJAR);
-
-            contractInfo.setCodeName(JARFile.getName().substring(0 , JARFile.getName().length()-4));
-            contractInfo.setCodeType("java");
-            String hash = H2ChainDevAPI.setContract(contractInfo);
-            System.out.println("hash存储值：" + hash);*/
+            String contractAddress = H2ChainDevAPI.deployContract(JARFile);
+            System.out.println("合约地址：" + contractAddress);
 
         } catch (Exception e) {
             e.printStackTrace();
