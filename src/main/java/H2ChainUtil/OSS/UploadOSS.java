@@ -17,7 +17,8 @@ public class UploadOSS {
     public static String uploadOSS(File file) throws Exception {
         try{
             // 创建OSSClient实例
-            OSS ossClient = new OSSClientBuilder().build("oss-cn-beijing.aliyuncs.com", "LTAI5tLS2EmoBSDiEBnYgXkh", "Qz1Pdbdx3U56d803mNjXHXIoE1XuE9");
+            //OSS ossClient = new OSSClientBuilder().build("oss-cn-beijing.aliyuncs.com", "LTAI5tLS2EmoBSDiEBnYgXkh", "Qz1Pdbdx3U56d803mNjXHXIoE1XuE9");
+            OSS ossClient = new OSSClientBuilder().build("oss-cn-beijing.aliyuncs.com", "...", "...");
 
             // 填写本地文件的完整路径。如果未指定本地路径，则默认从示例程序所属项目对应本地路径中上传文件流。
             InputStream inputStream = file.toURL().openStream();

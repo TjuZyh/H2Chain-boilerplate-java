@@ -26,19 +26,21 @@ public class Main {
     public static void main(String[] args) {
         try {
 
+            System.out.println(multiLClient.getBlockHeight());
+
             //get
-            //System.out.println(HexUtil.HexStringToString(H2ChainAPI.getInfo("person")));
+            System.out.println(HexUtil.HexStringToString(H2ChainAPI.getInfo("person")));
 
             //set
-            //H2ChainAPI.setInfo("person" , "zyh");
+            H2ChainAPI.setInfo("person" , "zyh");
 
             //get
-            //System.out.println(HexUtil.HexStringToString(H2ChainAPI.getInfo("person")));
+            System.out.println(HexUtil.HexStringToString(H2ChainAPI.getInfo("person")));
 
             //合约部署
-            File JARFile = new File("/Users/zyh/Desktop/JAR_demo.jar");
+            /*File JARFile = new File("/Users/zyh/Desktop/JAR_demo.jar");
             String contractAddress = H2ChainDevAPI.deployContract(JARFile);
-            System.out.println("合约地址：" + contractAddress);
+            System.out.println("合约地址：" + contractAddress);*/
 
         } catch (Exception e) {
             e.printStackTrace();

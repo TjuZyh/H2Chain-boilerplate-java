@@ -20,7 +20,6 @@ public class Test {
 
             String url = UploadOSS.uploadOSS(new File("/Users/zyh/Desktop/JAR_demo.jar"));
             System.out.println(url);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
